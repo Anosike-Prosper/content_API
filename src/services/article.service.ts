@@ -2,9 +2,9 @@ import Article, {IArticle } from "../models/article.model";
 
 export class ArticleService {
   async onCreateArticle(data: Partial<IArticle>) {
-    const {title, content, author, summary} = data
+    const {title, content, author, summary, embedding} = data
 
-    return await Article.create({title, content,author, summary})
+    return await Article.create({title, content,author, summary, embedding})
 
   }
 

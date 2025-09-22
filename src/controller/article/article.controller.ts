@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { ArticleService } from "../../services/article.service";
 import { PostArticleDto } from "./article.dto";
 import { getPagination } from "../../utils/pagination";
+import { generateEmbedding } from "../../services/embedding.service";
 
 export class ArticleController {
   constructor(private articleService: ArticleService) {}
@@ -12,11 +13,16 @@ export class ArticleController {
   ) => {
     const { title, content, summary, author } = req.body;
 
+     // Generate embedding for title + summary + content
+    const embedding = await generateEmbedding(`${title} ${summary ?? ""} ${content}`);
+
+
     const article = await this.articleService.onCreateArticle({
       title,
       content,
       summary,
       author,
+      embedding
     });
 
     return res.status(201).json({

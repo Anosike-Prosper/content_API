@@ -19,6 +19,20 @@ export class InteractionController {
         interactionType
     })
 
+
+    if (interactionType === "like") {
+        const existingLike = await this.interactionService.findLike(
+          userId,
+          articleId
+        );
+
+        if (existingLike) {
+          return res.status(400).json({
+            message: "User has already liked this article",
+          });
+        }
+      }
+
     return res.status(201).json({
       interaction,
       message: "success",

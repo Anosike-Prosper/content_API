@@ -5,6 +5,7 @@ export interface IArticle extends Document {
   content: string;
   author: string;
   summary?: string;
+   embedding?: number[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -15,6 +16,8 @@ const ArticleSchema: Schema = new Schema(
     content: { type: String, required: true },
     author: { type: String, required: true },
     summary: { type: String, default: '' },
+    embedding: { type: [Number], default: [] }
+    
   },
   { timestamps: true }
 );

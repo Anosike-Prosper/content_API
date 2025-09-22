@@ -27,3 +27,8 @@ export class UserController {
     });
   };
 }
+
+
+
+//like once, unlike
+//view and likes
