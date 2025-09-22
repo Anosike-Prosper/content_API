@@ -13,12 +13,7 @@ export class InteractionController {
 
     const {userId, articleId,interactionType }= req.body
 
-    const interaction = await this.interactionService.onRecordInteraction({
-        userId: new Types.ObjectId(userId),
-        articleId: new Types.ObjectId(articleId),
-        interactionType
-    })
-
+   
 
     if (interactionType === "like") {
         const existingLike = await this.interactionService.findLike(
@@ -32,6 +27,13 @@ export class InteractionController {
           });
         }
       }
+
+       const interaction = await this.interactionService.onRecordInteraction({
+        userId: new Types.ObjectId(userId),
+        articleId: new Types.ObjectId(articleId),
+        interactionType
+    })
+
 
     return res.status(201).json({
       interaction,

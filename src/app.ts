@@ -1,7 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
-// import morgan from "morgan";
 import configuration from "./config";
-// import { logger, stream } from "./utils/logger";
 import { Routes } from "./interface/routes.interface";
 import { MongoDB } from "./database/database";
 import {routes} from '../src/routes/index'
@@ -20,7 +18,6 @@ export default class App {
   }
 
   private initializeMiddlewares() {
-    // this.app.use(morgan("dev", { stream }));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }

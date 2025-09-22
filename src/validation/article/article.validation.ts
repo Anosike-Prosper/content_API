@@ -27,25 +27,7 @@ export class ArticleValidator {
     },
   });
 
-  
-//   getArticlesValidation = validate({
-//     limit: {
-//       optional: true,
-//       isInt: {
-//         options: { min: 1, max: 100 },
-//         errorMessage: "Limit must be a number between 1 and 100",
-//       },
-//       toInt: true, 
-//     },
-//     page: {
-//       optional: true,
-//       isInt: {
-//         options: { min: 1 },
-//         errorMessage: "Page must be a positive number",
-//       },
-//       toInt: true, 
-//     },
-//   });
+
 
 getArticleByIdValidation = validate({
     articleId: {

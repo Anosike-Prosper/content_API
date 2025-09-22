@@ -34,7 +34,6 @@ export class ArticleRoutes {
 
     this.router.get(
       `${this.path}`,
-      //   this.authValidation.onSelectAcccountValidation,
         this.controller.onGetArticles,
     );
 
